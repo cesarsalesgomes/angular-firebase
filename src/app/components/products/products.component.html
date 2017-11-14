@@ -1,0 +1,34 @@
+<app-navigation [header]="route.data | async"></app-navigation>
+<div class="row my-2">
+  <div class="col-4">
+    <input type="text" [(ngModel)]="filter" placeholder="Filtrar produto">
+  </div>
+</div>
+<div *ngIf='auth.user | async'>
+  <table class="table table-fix">
+    <thead>
+      <tr>
+        <th class="fit">#</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th class="fit"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of getProducts()">
+        <td class="fit"> {{ product._id }} </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.description }}</td>
+        <td>R$ {{ product.price | number:'.2-2' | toPrice }}</td>
+        <td class="fit">
+          <div class="d-flex justify-content-between">
+            <span class="clickable"><i class="fa fa-pencil-square-o" aria-hidden="true" (click)="updateModal(product)"></i></span>
+            <span class="clickable"><i class="fa fa-times" aria-hidden="true" (click)="removeModal(product)"></i></span>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-product-form [products]="products"></app-product-form>

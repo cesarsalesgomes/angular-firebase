@@ -1,0 +1,12 @@
+.clickable {
+  cursor: pointer
+}
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 60px;
+}
+.table-fix {
+  table-layout: fixed;
+  word-wrap: break-word;
+}

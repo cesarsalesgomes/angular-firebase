@@ -1,0 +1,6 @@
+.mycontent-left {
+  border-right: 1px solid #B2BEC7;
+}
+.mycontent-height {
+  height: calc(100% - 46px);
+}
