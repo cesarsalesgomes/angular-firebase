@@ -12,13 +12,13 @@
         <div class="form-group row">
           <label for="inputEmail" class="col-sm-2 col-md-3 col-lg-2 col-form-label">E-mail</label>
           <div class="col-sm-10 col-md-9 col-lg-10">
-            <input type="email" ngModel class="form-control" id="inputEmail" name="emailLogin" required email>
+            <input type="email" ngModel class="form-control" id="emailLogin" name="emailLogin" required email>
           </div>
         </div>
         <div class="form-group row">
           <label for="inputPassword" class="col-sm-2 col-md-3 col-lg-2 col-form-label">Senha</label>
           <div class="col-sm-10 col-md-9 col-lg-10">
-            <input type="password" ngModel class="form-control" id="inputPassword" name="passwordLogin" required>
+            <input type="password" ngModel class="form-control" id="passwordLogin" name="passwordLogin" required>
           </div>
         </div>
         <button type="submit" class="btn btn-primary h6" [disabled]="!loginForm.valid">Continuar</button>
@@ -32,7 +32,7 @@
         <div class="form-group row">
           <label for="inputEmail" class="col-sm-2 col-md-3 col-lg-2 col-form-label">E-mail</label>
           <div class="col-sm-10 col-md-9 col-lg-10">
-            <input type="email" ngModel class="form-control" id="inputEmail" name="emailRegister" required email>
+            <input type="email" ngModel class="form-control" id="emailRegister" name="emailRegister" required email>
           </div>
         </div>
         <button type="submit" class="btn btn-primary h6 mt-auto" [disabled]="!registerForm.valid">Criar cadastro</button>

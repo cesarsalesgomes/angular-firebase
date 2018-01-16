@@ -50,6 +50,7 @@ export class AuthService {
     return this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
       .then(credential => {
         user.uid = credential.uid;
+        user.last_products_id = 1;
 
         this.updateUserData(user);
       })

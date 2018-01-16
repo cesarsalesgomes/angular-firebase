@@ -22,8 +22,23 @@ export class ProductService {
   createProduct(p: Product) {
     return this.auth.user.take(1)
       .toPromise()
-      .then(user => {
-        return this.afs.collection(`users/${user.uid}/products`).add(p);
+      .then((user: User) => {
+        p._id = user.last_products_id;
+
+        return this.afs.collection(`users/${user.uid}/products`)
+          .add(p)
+          .then(ref => {
+            return this.afs.doc(`users/${user.uid}/products/${ref.id}`)
+              .update({
+                uid: ref.id
+              })
+          })
+          .then(() => {
+            return this.afs.doc(`users/${user.uid}`)
+              .update({
+                last_products_id: user.last_products_id + 1
+              })
+          });
       });
   }
 

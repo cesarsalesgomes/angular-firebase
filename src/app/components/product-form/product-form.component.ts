@@ -55,6 +55,7 @@ export class ProductFormAddComponent {
         this.activeModal.close('');
       })
       .catch(err => {
+        console.log(err);
         this.message = 'Produto inválido';
       });
   }
